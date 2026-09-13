@@ -1,7 +1,7 @@
 # Reconstructed Audio Classification - Polish AI Olympiad III
 
 This repository is a reconstructed reference solution for the first-stage Audio Classification task in the Polish Artificial Intelligence Olympiad.
-It is not the author's original competition submission.
+
 
 The pipeline converts waveforms into mel-spectral summary features and classifies them with a standardized radial-basis support-vector model.
 It is deterministic, CPU-friendly, and has no hidden notebook state.
