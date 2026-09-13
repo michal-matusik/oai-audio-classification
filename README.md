@@ -6,6 +6,10 @@ It is not the author's original competition submission.
 The pipeline converts waveforms to normalized log-spectrogram features and is designed for a compact convolutional classifier with time masking and frequency masking augmentations.
 The NumPy feature extractor enables reproducible preprocessing without hidden notebook state.
 
+![Audio-classification task illustration](assets/task-audio.png)
+
+*Task illustration embedded in the official Polish AI Olympiad III notebook.*
+
 ## Quick start
 
 `python -m unittest discover -s tests -v`
