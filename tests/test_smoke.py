@@ -1,13 +1,17 @@
-import sys, unittest
-from pathlib import Path
+import unittest
+
 import numpy as np
-sys.path.insert(0, str(Path(__file__).parents[1] / 'src'))
-from dataset import log_spectrogram, standardize
+
+from src.model import MelFeatureExtractor
+
 
 class AudioSmokeTest(unittest.TestCase):
-    def test_log_spectrogram(self):
-        wave = np.sin(2 * np.pi * 440 * np.arange(2048) / 16000)
-        features = standardize(log_spectrogram(wave))
-        self.assertEqual(features.shape[1], 129); self.assertTrue(np.isfinite(features).all())
+    def test_feature_shape_and_finiteness(self):
+        waveform = np.sin(2 * np.pi * 440 * np.arange(4096) / 16000).astype(np.float32)
+        features = MelFeatureExtractor().transform([waveform])
+        self.assertEqual(features.shape, (1, 388))
+        self.assertTrue(np.isfinite(features).all())
 
-if __name__ == '__main__': unittest.main()
+
+if __name__ == "__main__":
+    unittest.main()
